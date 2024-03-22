@@ -1,12 +1,12 @@
 ### POST /post
 POST http://localhost:3001/post
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MTExMzQ5OTAsImV4cCI6MTcxMTE0NTc5MH0.SSoXHBBtlgEBIT3V6tmkRqCUSB-Q-NjF9bZeKEy_MoY
 
 {
   "title": "C++ is hard to easy!",
   "content": "The best thing about TypeScript is that it's a superset of JavaScript.",
-  "image": "https://www.google.com",
+  "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png",
   "categoryIds": [4, 5]
 }
 
@@ -33,9 +33,9 @@ Authorization: Bearer <token>
 }
 
 ### DELETE /post/:id
-DELETE http://localhost:3001/post/1
+DELETE http://localhost:3001/post/3
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MTExMzYzNTIsImV4cCI6MTcxMTE0NzE1Mn0.khTPeb87JbEBb2U5tDGMO-ucHhJvLcd18xLHRcqoLFk
 
 ### GET /post/search
 GET http://localhost:3001/post/search?q=TypeScript
