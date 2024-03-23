@@ -32,7 +32,6 @@ export function AppRoutes() {
           <>
             <Route path="/edit-post/:id" element={ <EditPost /> } />
             <Route path="/create-post" element={ <CreatePost /> } />
-            <Route path="/categories" element={ <Categories /> } />
             <Route path="/user-posts" element={ <UserPosts /> } />
             <Route path="/profile" element={ <Profile /> } />
           </>
