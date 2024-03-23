@@ -1,4 +1,4 @@
-# Blog API - Coffee and Code
+# Blogs API - Coffee and Code
 
 ## Project Description
 
