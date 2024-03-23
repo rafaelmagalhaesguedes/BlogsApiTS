@@ -187,3 +187,45 @@ export const ContentBody = styled.div`
     }
   }
 `;
+
+export const PostsNotFound = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #000;
+  }
+`;
+
+export const LoadMore = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+`;
+
+export const ButtonLoadMore = styled.button`
+  width: 30%;
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    background-color: #000;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
