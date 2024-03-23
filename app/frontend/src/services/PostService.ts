@@ -1,5 +1,6 @@
 /* eslint-disable max-params */
 import { PostType } from '../types/PostType';
+import { getCache, setCache } from './CacheService';
 import { HOST } from './ApiService';
 
 const headers = {
@@ -34,16 +35,6 @@ export const createPost = async (
   return res.json();
 };
 
-export const findAllPosts = async () => {
-  const res = await fetch(`${HOST}/post`, {
-    method: 'GET',
-    headers,
-  });
-  let data = await res.json();
-  data = data.sort((a: PostType, b: PostType) => b.id - a.id);
-  return data;
-};
-
 export const findPostById = async (id: number) => {
   const res = await fetch(`${HOST}/post/${id}`, {
     method: 'GET',
@@ -73,12 +64,51 @@ export const updatePost = async (
   throw new Error('Failed to update post');
 };
 
+export const findAllPosts = async () => {
+  //
+  let data = getCache();
+
+  if (data) {
+    return data;
+  }
+
+  const res = await fetch(`${HOST}/post`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  //
+  data = await res.json();
+  data = data.sort((a: PostType, b: PostType) => b.id - a.id);
+
+  // Update cache
+  setCache(data);
+
+  return data;
+};
+
 export const searchPost = async (searchQuery: string) => {
+  //
+  const dataCashed = getCache();
+
+  if (dataCashed) {
+    return dataCashed.filter((post: PostType) => post.title
+      .toLowerCase().includes(searchQuery.toLowerCase()));
+  }
+
   const res = await fetch(`${HOST}/post/search?q=${searchQuery}`, {
     method: 'GET',
-    headers,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
+  //
   let data = await res.json();
   data = data.sort((a: PostType, b: PostType) => b.id - a.id);
+  console.log(data);
+
+  setCache(data);
+
   return data;
 };
